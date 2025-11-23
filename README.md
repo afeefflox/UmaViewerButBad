@@ -1,5 +1,16 @@
 # Uma Viewer (2)
 
+This is Random Fork I ever made for fun (like fixing VMD but instead using mmd models but uma) also Mini Character work too!
+
+Here Silly Example (yeah that it btw)
+
+![ezgif-61b681ba89808745](https://github.com/user-attachments/assets/8c79acb1-5804-44d3-b68f-b2aa37658228)
+
+
+![ezgif-2f6db1d54ce3278a](https://github.com/user-attachments/assets/ff68cdf9-5fc3-4d4c-bee2-63b2994c6ee7)
+
+------------
+
 Unity application that makes it easy to view assets from Uma Musume: Pretty Derby.
 
 | Version   | Supported |
