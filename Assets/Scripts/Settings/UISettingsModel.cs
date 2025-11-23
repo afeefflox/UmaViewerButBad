@@ -4,6 +4,9 @@ using SFB;
 
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 public class UISettingsModel : MonoBehaviour
 {
@@ -99,12 +102,29 @@ public class UISettingsModel : MonoBehaviour
 
     public void ExportModel()
     {
+        //anyways who wanted this stupid Path
 #if !UNITY_ANDROID || UNITY_EDITOR
         var container = Builder.CurrentUMAContainer;
         if (container)
         {
+            string savePath = Application.dataPath + "/../Models/";
+
+            if(container.IsMini)
+            {
+                savePath += "Mini/";
+            }
+            else
+            {
+                savePath += "Main/";
+            }
+
             var entry = container.CharaEntry;
-            var path = StandaloneFileBrowser.SaveFilePanel("Save PMX File", Config.Instance.MainPath, $"{entry.Id}_{entry.GetName()}", "pmx");
+
+            savePath += $"{entry.Id}_{entry.GetName()}/";
+
+            Directory.CreateDirectory(savePath);
+
+            var path = StandaloneFileBrowser.SaveFilePanel("Save PMX File", savePath, $"{entry.Id}_{entry.GetName()}", "pmx");
             if (!string.IsNullOrEmpty(path))
             {
                 ModelExporter.ExportModel(container, path);
@@ -114,7 +134,13 @@ public class UISettingsModel : MonoBehaviour
         var prop_container = Builder.CurrentOtherContainer;
         if (prop_container)
         {
-            var path = StandaloneFileBrowser.SaveFilePanel("Save PMX File", Config.Instance.MainPath, $"{prop_container}", "pmx");
+            string savePath = Application.dataPath + "/../Models/";
+
+            savePath += $"{prop_container}";
+
+            Directory.CreateDirectory(savePath);
+
+            var path = StandaloneFileBrowser.SaveFilePanel("Save PMX File", savePath, $"{prop_container}", "pmx");
             if (!string.IsNullOrEmpty(path))
             {
                 ModelExporter.ExportModel(prop_container, path);

@@ -1038,9 +1038,9 @@ public class UmaViewerUI : MonoBehaviour
         var camera = Builder.AnimationCamera;
         var buttonText = AnimationSettings.VMDButton.GetComponentInChildren<TextMeshProUGUI>();
 
-        if (!container || container.IsMini)
+        if (!container)
         {
-            buttonText.text = string.Format("<color=#FF0000>{0}</color>", "Need Normal UMA");
+            buttonText.text = string.Format("<color=#FF0000>{0}</color>", "Need Uma Models or Mini");
             return;
         }
 

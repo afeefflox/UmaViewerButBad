@@ -143,7 +143,7 @@ public class Config
     {
         Version = Application.version;
 
-        MainPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low"}\Cygames\umamusume";
+        MainPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low"}\Cygames\UmamusumePrettyDerby_Jpn";
         if (Application.isMobilePlatform)
         {
             WorkMode = WorkMode.Standalone;
@@ -202,7 +202,7 @@ public class Config
             catch (Exception ex)
             {
                 UmaViewerUI.Instance.ShowMessage("Config load error. Using default. " + ex.Message, UIMessageType.Error);
-                MainPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low"}\Cygames\umamusume";
+                MainPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low"}\Cygames\UmamusumePrettyDerby_Jpn";
             }
         }
         Instance = this;

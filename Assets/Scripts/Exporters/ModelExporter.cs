@@ -48,7 +48,6 @@ public class ModelExporter
 
     public static void ExportModel(UmaContainer container, string path)
     {
-
         var textures = TextureExporter.ExportAllTexture(Path.GetDirectoryName(path), container.gameObject);
         var model = ReadPMXModel(container, textures);
 
@@ -86,7 +85,7 @@ public class ModelExporter
             rootBone = container.transform;
         }
         List<Transform> bones = new List<Transform>(rootBone.GetComponentsInChildren<Transform>());
-        bones.RemoveAll(o => o.name.Contains("Col_"));
+        excludeBone(bones);
 
         //Read vertices And triangles
         List<Renderer> renderers = new List<Renderer>(container.GetComponentsInChildren<Renderer>());
@@ -107,6 +106,21 @@ public class ModelExporter
         model.Joints = new MMDJoint[0];
 
         return model;
+    }
+
+    //Remove Any uncessary stuf
+    public static void excludeBone(List<Transform> bones)
+    {
+        bones.RemoveAll(o => o.name.Contains("Col_"));
+        bones.RemoveAll(o => o.name.Contains("_Handle")); 
+        bones.RemoveAll(o => o.name.Contains("_Pole"));
+        bones.RemoveAll(o => o.name.Contains("_Target"));
+        bones.RemoveAll(o => o.name.Contains("Head_shade_start"));
+        bones.RemoveAll(o => o.name.Contains("Head_height"));
+        bones.RemoveAll(o => o.name.Contains("Head_shade_start"));
+        bones.RemoveAll(o => o.name.Contains("Eye_target_locator"));
+        bones.RemoveAll(o => o.name.Contains("Eye_locator"));
+        bones.RemoveAll(o => o.name.Contains("Eye_tear_attach"));
     }
 
     public static Vector3[] Vec4ToVec3(Vector4[] vector4s)
