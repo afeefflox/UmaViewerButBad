@@ -1,6 +1,6 @@
 # Uma Viewer (2)
 
-This is Random Fork I ever made for fun (like fixing VMD but instead using mmd models but uma) also Mini Character work too!
+This is Random Fork I ever made for fun (like fixing VMD but use Uma Models instead MMD models (idk MMD models has issue btw) ) also Mini Character work too!
 
 Here Silly Example (yeah that it btw)
 
